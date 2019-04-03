@@ -1,0 +1,23 @@
+https://www.tutsmake.com/node-express-js-creating-a-restful-crud-api-with-mysql/
+https://dev.to/medaymentn/securing-your-node-js-api-with-json-web-token-5o5
+https://appdividend.com/2018/11/04/angular-7-crud-example-mean-stack-tutorial/
+https://www.npmjs.com/package/@ngx-pwa/local-storage (tarea asíncrona)
+https://www.npmjs.com/package/angular-local-storage
+https://angular.io/api/forms/FormControlName#use-with-ngmodel
+https://www.npmjs.com/package/simple-node-logger
+https://www.npmjs.com/package/angular-messages
+https://github.com/sebaplaza/node-oracle
+https://github.com/facebook/create-react-app/issues/982
+
+#Logstach
+https://www.elastic.co/guide/en/logstash/current/configuration.html
+docker pull docker.elastic.co/logstash/logstash:6.7.0
+
+
+#kibana
+https://www.elastic.co/guide/en/kibana/current/docker.html
+docker run --link fc9f3fda88ac:elasticsearch -p 5601:5601 docker.elastic.co/kibana/kibana:6.7.0
+
+#run logstash
+bin/logstash -f logstash.conf
+
