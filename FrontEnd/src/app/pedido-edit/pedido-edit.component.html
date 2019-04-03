@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+  
+  
+        <!--Inicia campo de primer apellido-->
+        <div class="form-group">
+            <label class="col-md-4">Id Pedido</label>
+            <input type="text" class="form-control"
+              formControlName="idOrder" #idOrder />
+          </div>
+          <div *ngIf="angForm.controls['idOrder'].invalid &&
+            (angForm.controls['idOrder'].dirty ||
+            angForm.controls['idOrder'].touched)" class="alert
+            alert-danger">
+            <div *ngIf="angForm.controls['idOrder'].errors.required">
+              Campo requerido
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="col-md-4">Id Cliente</label>
+              <input type="text" class="form-control"
+                formControlName="idNumber"  #idNumber />
+            </div>
+            <div *ngIf="angForm.controls['idNumber'].invalid &&
+              (angForm.controls['idNumber'].dirty ||
+              angForm.controls['idNumber'].touched)" class="alert
+              alert-danger">
+              <div *ngIf="angForm.controls['idNumber'].errors.required">
+                Campo requerido
+              </div>
+            </div>
+        <div class="form-group">
+          <label class="col-md-4">Descrición</label>
+          <input type="text" class="form-control"
+            formControlName="description"  #description/>
+        </div>
+        <div *ngIf="angForm.controls['description'].invalid &&
+          (angForm.controls['description'].dirty ||
+          angForm.controls['description'].touched)" class="alert
+          alert-danger">
+          <div *ngIf="angForm.controls['description'].errors.required">
+            Campo requerido
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group row flex-v-center">
+            <div class="col-md-1 col-sm-2">
+                <a [routerLink]="['/pedidos']" class="btn btn-light">
+                Volver
+            </a>
+          </div>
+          <button (click)="updateOrder(idOrder.value,idNumber.value,description.value)"
+            [disabled]="angForm.pristine || angForm.invalid"
+            class="btn btn-primary">
+            Actualizar
+          </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

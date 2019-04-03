@@ -1,3 +1,6 @@
+#Istalacion modulo Angular
+npm install @angular-devkit/build-angular
+
 #Seguridad para generar token con JWT
 user:pfcti
 password:123

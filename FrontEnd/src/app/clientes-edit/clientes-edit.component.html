@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <!--Inicia numero de identificacion-->
+        <div class="form-group">
+          <label class="col-md-4">Número de Identificación </label>
+          <input type="text" class="form-control"
+            formControlName="idNumber"  #idNumber />
+        </div>
+        <div *ngIf="angForm.controls['idNumber'].invalid &&
+          (angForm.controls['idNumber'].dirty ||
+          angForm.controls['idNumber'].touched)" class="alert
+          alert-danger">
+          <div *ngIf="angForm.controls['idNumber'].errors.required">
+            Campo requerido
+          </div>
+        </div>
+        <!--fin numero identificacion-->
+        <!--Inicia campo de name del cliente-->
+        <div class="form-group">
+          <label class="col-md-4">Nombre Cliente</label>
+          <input type="text" class="form-control" formControlName="name"
+           #name/>
+        </div>
+        <div *ngIf="angForm.controls['name'].invalid &&
+          (angForm.controls['name'].dirty ||
+          angForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['name'].errors.required">
+            Campo requerido
+          </div>
+        </div>
+        <!--Fin name cliente-->
+  
+        <!--Inicia campo de primer apellido-->
+        <div class="form-group">
+          <label class="col-md-4">Primer Apellido</label>
+          <input type="text" class="form-control"
+            formControlName="surname"  #surname/>
+        </div>
+        <div *ngIf="angForm.controls['surname'].invalid &&
+          (angForm.controls['surname'].dirty ||
+          angForm.controls['surname'].touched)" class="alert
+          alert-danger">
+          <div *ngIf="angForm.controls['surname'].errors.required">
+            Campo requerido
+          </div>
+        </div>
+        <!--Fin primer apellido-->
+        <!--Inicia campo de segundo apellido-->
+        <div class="form-group">
+          <label class="col-md-4">Segundo Apellido</label>
+          <input type="text" class="form-control"
+            formControlName="secondSurname"  #secondSurname/>
+        </div>
+        <div *ngIf="angForm.controls['secondSurname'].invalid &&
+          (angForm.controls['secondSurname'].dirty ||
+          angForm.controls['secondSurname'].touched)" class="alert
+          alert-danger">
+          <div *ngIf="angForm.controls['secondSurname'].errors.required">
+            Campo requerido
+          </div>
+        </div>
+        <div class="form-group row flex-v-center">
+            <div class="col-md-1 col-sm-2">
+            <a [routerLink]="['/clientes']" class="btn btn-light">
+            Volver
+        </a>
+      </div>
+          <button  (click)="updateCliente(name.value, surname.value,
+            secondSurname.value, idNumber.value)"
+            [disabled]="angForm.pristine || angForm.invalid"
+            class="btn btn-primary">
+            Actualizar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
