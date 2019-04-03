@@ -1,0 +1,36 @@
+<div class="row" *ngIf="showMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+            <strong>El registro ha sido Eliminado</strong>
+          </p>
+        </div>
+      </div>
+      <div class="row" *ngIf="showErrorMsg">
+          <div class="col-xs-12">
+            <p class="alert alert-danger">
+              <strong>Error al eliminar el registro</strong>
+            </p>
+          </div>
+        </div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Numero Identificación</td>
+        <td>Nombre</td>
+        <td>Primer Apellido</td>
+        <td>Segundo Apellido</td>
+        <td colspan="2">Actions</td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.idNumber }}</td>
+            <td>{{ cliente.name}}</td>
+            <td>{{ cliente.surname }}</td>
+            <td>{{ cliente.secondSurname }}</td>
+            <td><a [routerLink]="['/cliente', cliente.idNumber]" routerLinkActive="active" class="btn btn-primary">Editar</a></td>
+            <td><a [routerLink]="['/clientes']" routerLinkActive="active" (click)="deleteCliente(cliente.idNumber)" class="btn btn-danger">Eliminar</a></td>
+        </tr>
+    </tbody>
+  </table>

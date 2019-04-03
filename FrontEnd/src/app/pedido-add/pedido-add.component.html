@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-body">
+      <div class="row" *ngIf="showMsg">
+          <div class="col-xs-12">
+            <p class="alert alert-success">
+              <strong>El registro ha sido creado</strong>
+            </p>
+          </div>
+        </div>
+        <div class="row" *ngIf="showErrorMsg">
+            <div class="col-xs-12">
+              <p class="alert alert-danger">
+                <strong>Error al crear el registro</strong>
+              </p>
+            </div>
+          </div>
+    <form [formGroup]="angForm" novalidate>
+      <!--Inicia campo de primer apellido-->
+      <div class="form-group">
+        <label class="col-md-4">Cliente</label>
+        <select [(ngModel)]="idNumber" [ngModelOptions]="{standalone: true}"
+          class="form-control" name="idNumber" #description>
+          <option value="0">--All--</option>
+          <option *ngFor="let client of clients"
+            value={{client.idNumber}}>
+            {{client.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Descrición</label>
+        <input type="text" class="form-control"
+          formControlName="description" #description/>
+      </div>
+      <div *ngIf="angForm.controls['description'].invalid &&
+        (angForm.controls['description'].dirty ||
+        angForm.controls['description'].touched)" class="alert
+        alert-danger">
+        <div *ngIf="angForm.controls['description'].errors.required">
+          Campo requerido
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="addPedido(description.value)"
+          [disabled]="angForm.pristine || angForm.invalid"
+          class="btn btn-primary">
+          Agregar Pedido
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
